@@ -1,0 +1,13 @@
+<odoo> 
+  <data>
+    <report
+        string="Reporte personalizado"
+        id="action_imp_report"
+        model="product.template"
+        name="reportes.report_stock"
+        file="reportes.report_stock"
+        report_type="qweb-pdf"
+        print_report_name="'Reporte - %s' % object.name"
+    />
+  </data>
+</odoo>

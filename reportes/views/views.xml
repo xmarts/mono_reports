@@ -1,0 +1,49 @@
+<odoo>
+  <data>
+    <!--INICIO DE WIZARD PARA REPORTES -->
+    <record id="action_wizard_report_stock" model="ir.ui.view">
+      <field name="name">Generar reporte</field>
+      <field name="model">wizard.report.stock</field>
+      <field name="arch" type="xml">
+      <form>
+        <header></header>
+        <sheet>
+          <group>
+            <field name="type_report" string="Tipo de reporte"/>
+            <field name="type_category" attrs="{'invisible': [('type_report', '!=', 'category')]}"/>
+            <field name="type_stock" attrs="{'invisible': [('type_report', '!=', 'stock')]}"/>
+          </group>
+        </sheet>
+        <footer>
+          <button string="Generar" type="object" name="open_table" class="btn-primary"/>
+          <button special="cancel" string="Cancelar"/>
+        </footer>
+      </form>
+      </field>
+    </record>
+    <record id="action_view_wizard_reporte" model="ir.actions.act_window">
+      <field name="name">Generar reporte</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">wizard.report.stock</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="action_wizard_report_stock"/>
+      <field name="target">new</field>
+    </record>
+    <menuitem id="ir_wizard_report" name="Cátalogo de almacén" parent="stock.menu_warehouse_report" sequence="100" action="action_view_wizard_reporte"/>
+
+
+    <record id="field_stock_gdl" model="ir.ui.view">
+      <field name="name">Field stock GDL</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='barcode']" position="after">
+          <field name="stock_gdl" invisible="1"/>
+          <field name="stock_mex" invisible="1"/>
+          <field name="stock_mer" invisible="1"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

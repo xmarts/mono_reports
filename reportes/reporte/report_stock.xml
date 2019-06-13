@@ -1,0 +1,67 @@
+<odoo>
+	<template id="report_stock">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<t>
+					<div class="page">
+						<table class="table table-condensed" >
+			                <thead>
+			                  <tr>
+			                    <!--<th style="width:10%;text-align:left;">Código</th>-->
+			                    <th>Imagen</th>
+			                    <th>Nombre</th>
+			                    <th>Descripción</th>
+			                    <th>Lab. MEX</th>
+			                    <th>Lab. GDL</th>
+			                    <th>Lab. MER</th>
+			                  </tr>
+			                </thead>
+			                <tbody class="invoice_tbody">
+			                  <tr t-foreach="docs" t-as="o">
+			                    <td>
+			                    	<span>
+			                    		<t t-if="o.image_small">
+			                    			<img t-attf-src="data:image/*;base64,{{o.image_small}}"/>
+			                    		</t>
+			                    		<t t-else="">
+			                    			<span>Sin imagen</span>
+			                    		</t>
+			                    	</span>
+			                    </td>
+			                    <td>
+			                      <span t-field="o.name"/>
+			                    </td>
+			                  	<td>
+									<span t-field="o.name"/>
+									<t t-if="o.default_code">
+										<span>,</span>
+									</t>
+									<span t-field="o.default_code"/>
+									<t t-if="o.x_studio_medidas">
+										<span>,</span>
+									</t>
+									<span t-field="o.x_studio_medidas"/>
+									<t t-if="o.description">
+										<span>,</span>
+									</t>
+									<span t-field="o.description"/>
+			                  	</td>
+			                  	<td>
+									<span t-field="o.stock_mex"/>
+			                  	</td>
+			                  	<td>
+									<span t-field="o.stock_gdl"/>
+			                  	</td>
+			                  	<td>
+									<span t-field="o.stock_mer"/>
+			                  	</td>
+			                  </tr>
+			                </tbody>
+			              </table>
+					</div>
+				</t>
+			</t>
+		</t>
+	</template>
+
+</odoo>
