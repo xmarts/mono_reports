@@ -14,6 +14,7 @@
 			                    <th>Lab. MEX</th>
 			                    <th>Lab. GDL</th>
 			                    <th>Lab. MER</th>
+			                    <th>En tránsito</th>
 			                  </tr>
 			                </thead>
 			                <tbody class="invoice_tbody">
@@ -54,6 +55,9 @@
 			                  	</td>
 			                  	<td>
 									<span t-field="o.stock_mer"/>
+			                  	</td>
+			                  	<td>
+									<span t-field="o.stock_et"/>
 			                  	</td>
 			                  </tr>
 			                </tbody>
