@@ -32,7 +32,6 @@
     </record>
     <menuitem id="ir_wizard_report" name="Cátalogo de almacén" parent="stock.menu_warehouse_report" sequence="100" action="action_view_wizard_reporte"/>
 
-
     <record id="field_stock_gdl" model="ir.ui.view">
       <field name="name">Field stock GDL</field>
       <field name="model">product.template</field>
@@ -42,6 +41,7 @@
           <field name="stock_gdl" invisible="1"/>
           <field name="stock_mex" invisible="1"/>
           <field name="stock_mer" invisible="1"/>
+          <!--<field name="stock_et" invisible="1"/>-->
         </xpath>
       </field>
     </record>
