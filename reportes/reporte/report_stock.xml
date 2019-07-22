@@ -18,7 +18,11 @@
 			                  </tr>
 			                </thead>
 			                <tbody class="invoice_tbody">
-			                  <tr t-foreach="docs" t-as="o">
+			                <t t-foreach="docs" t-as="o">
+			                  <tr t-if="o.stock_mex >= 1 or 
+			                  			o.stock_mer >= 1 or 
+			                  			o.stock_gdl >= 1 or 
+			                  			o.stock_et  >= 1">
 			                    <td>
 			                    	<span>
 			                    		<t t-if="o.image_small">
@@ -60,6 +64,7 @@
 									<span t-field="o.stock_et"/>
 			                  	</td>
 			                  </tr>
+			                 </t> 
 			                </tbody>
 			              </table>
 					</div>
