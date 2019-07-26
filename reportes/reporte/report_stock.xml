@@ -11,18 +11,22 @@
 			                    <th>Imagen</th>
 			                    <th>Nombre</th>
 			                    <th>Descripción</th>
-			                    <th>Lab. MEX</th>
-			                    <th>Lab. GDL</th>
-			                    <th>Lab. MER</th>
-			                    <th>En tránsito</th>
+			                    <th>C. CDMX</th>
+			                    <th>C. GDL</th>
+			                    <th>C. MER</th>
+			                    <th>ENAU</th>
+			                    <th>EOC</th>
+			                    <th>EMER</th>
 			                  </tr>
 			                </thead>
 			                <tbody class="invoice_tbody">
 			                <t t-foreach="docs" t-as="o">
-			                  <tr t-if="o.stock_mex >= 1 or 
+			                  <tr t-if="o.stock_cdmx >= 1 or 
 			                  			o.stock_mer >= 1 or 
 			                  			o.stock_gdl >= 1 or 
-			                  			o.stock_et  >= 1">
+			                  			o.stock_enau  >= 1 or 
+			                  			o.stock_eoc  >= 1 or
+			                  			o.stock_emer  >= 1">
 			                    <td>
 			                    	<span>
 			                    		<t t-if="o.image_small">
@@ -52,7 +56,7 @@
 									<span t-field="o.description"/>
 			                  	</td>
 			                  	<td>
-									<span t-field="o.stock_mex"/>
+									<span t-field="o.stock_cdmx"/>
 			                  	</td>
 			                  	<td>
 									<span t-field="o.stock_gdl"/>
@@ -61,7 +65,13 @@
 									<span t-field="o.stock_mer"/>
 			                  	</td>
 			                  	<td>
-									<span t-field="o.stock_et"/>
+									<span t-field="o.stock_enau"/>
+			                  	</td>
+			                  	<td>
+									<span t-field="o.stock_eoc"/>
+			                  	</td>
+			                  	<td>
+									<span t-field="o.stock_emer"/>
 			                  	</td>
 			                  </tr>
 			                 </t> 
