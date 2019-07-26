@@ -24,7 +24,7 @@ class ProductTemplate(models.Model):
 		stock_warehouse_emer  = self.env['stock.warehouse'].search([('code', 'like', 'EMER')], limit=1)
 
 		con = self.env.cr
-		query_stock = "select product_qty from stock_inventory_line where product_id = %s and location_id = %s"
+		query_stock = "SELECT product_qty FROM stock_inventory_line WHERE product_id = %s AND location_id = %s"
 
 		datos_gdl = (self.product_variant_id.id,stock_warehouse_gdl.lot_stock_id.id)
 		datos_cdmx = (self.product_variant_id.id,stock_warehouse_cdmx.lot_stock_id.id)
