@@ -9,7 +9,6 @@
 			                  <tr>
 			                    <!--<th style="width:10%;text-align:left;">Código</th>-->
 			                    <th>Imagen</th>
-			                    <th>Nombre</th>
 			                    <th>Descripción</th>
 			                    <th>C. CDMX</th>
 			                    <th>C. GDL</th>
@@ -36,9 +35,6 @@
 			                    			<span>Sin imagen</span>
 			                    		</t>
 			                    	</span>
-			                    </td>
-			                    <td>
-			                      <span t-field="o.name"/>
 			                    </td>
 			                  	<td>
 									<span t-field="o.name"/>
