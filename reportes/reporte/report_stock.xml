@@ -10,12 +10,12 @@
 			                    <!--<th style="width:10%;text-align:left;">Código</th>-->
 			                    <th>Imagen</th>
 			                    <th>Descripción</th>
-			                    <th>C. CDMX</th>
+			                    <th>C. NAU</th>
 			                    <th>C. GDL</th>
 			                    <th>C. MER</th>
-			                    <th>ENAU</th>
-			                    <th>EOC</th>
-			                    <th>EMER</th>
+			                    <th>T. NAU</th>
+			                    <th>T. GDL</th>
+			                    <th>T. MER</th>
 			                  </tr>
 			                </thead>
 			                <tbody class="invoice_tbody">
