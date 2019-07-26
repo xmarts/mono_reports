@@ -26,12 +26,12 @@ class ProductTemplate(models.Model):
 		con = self.env.cr
 		query_stock = "SELECT product_qty FROM stock_inventory_line WHERE product_id = %s AND location_id = %s"
 
-		datos_gdl = (self.id,stock_warehouse_gdl.lot_stock_id.id)
-		datos_cdmx = (self.id,stock_warehouse_cdmx.lot_stock_id.id)
-		datos_mer = (self.id,stock_warehouse_mer.lot_stock_id.id)
-		datos_enau  = (self.id,stock_warehouse_enau.lot_stock_id.id)
-		datos_eoc  = (self.id,stock_warehouse_eoc.lot_stock_id.id)
-		datos_emer  = (self.id,stock_warehouse_emer.lot_stock_id.id)
+		datos_gdl = (self.product_variant_id.id,stock_warehouse_gdl.lot_stock_id.id)
+		datos_cdmx = (self.product_variant_id.id,stock_warehouse_cdmx.lot_stock_id.id)
+		datos_mer = (self.product_variant_id.id,stock_warehouse_mer.lot_stock_id.id)
+		datos_enau  = (self.product_variant_id.id,stock_warehouse_enau.lot_stock_id.id)
+		datos_eoc  = (self.product_variant_id.id,stock_warehouse_eoc.lot_stock_id.id)
+		datos_emer  = (self.product_variant_id.id,stock_warehouse_emer.lot_stock_id.id)
 
 		con.execute(query_stock, datos_gdl)
 		if con:
