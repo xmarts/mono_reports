@@ -24,7 +24,7 @@ class ProductTemplate(models.Model):
 		stock_warehouse_emer  = self.env['stock.warehouse'].search([('code', 'like', 'EMER')], limit=1)
 
 		con = self.env.cr
-		query_stock = "SELECT product_qty FROM stock_inventory_line WHERE product_id = %s AND location_id = %s"
+		query_stock = "SELECT sum(product_qty) FROM stock_inventory_line WHERE product_id = %s AND location_id = %s"
 
 		datos_gdl = (self.product_variant_id.id,stock_warehouse_gdl.lot_stock_id.id)
 		datos_cdmx = (self.product_variant_id.id,stock_warehouse_cdmx.lot_stock_id.id)
@@ -67,7 +67,7 @@ class ProductTemplate(models.Model):
 class PurchaseOrder(models.Model):
 	_inherit = "purchase.order"
 
-	@api.one
+	@api.multi
 	def action_stock_et(self):
 		for record in self:
 
@@ -114,7 +114,7 @@ class PurchaseOrder(models.Model):
 								'company_id': line.company_id.id
 							}
 							inventario_linea_id = inventario_linea_obj.create(inventario_linea_val)
-	@api.one
+	@api.multi
 	def button_confirm(self):
 		self.action_stock_et()
-		return super(PurchaseOrder, self).button_confirm()						
+		return super(PurchaseOrder, self).button_confirm()				
