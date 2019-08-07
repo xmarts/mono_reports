@@ -62,7 +62,7 @@ class ProductTemplate(models.Model):
 		if con:
 			row6 = con.fetchall()
 			for x6 in row6:
-				self.stock_emer = x6[0]				
+				self.stock_emer = x6[0]
 
 class PurchaseOrder(models.Model):
 	_inherit = "purchase.order"

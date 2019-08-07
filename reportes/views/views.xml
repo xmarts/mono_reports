@@ -30,7 +30,7 @@
       <field name="view_id" ref="action_wizard_report_stock"/>
       <field name="target">new</field>
     </record>
-    <menuitem id="ir_wizard_report" name="Cátalogo de almacén" parent="stock.menu_warehouse_report" sequence="100" action="action_view_wizard_reporte"/>
+    <menuitem id="ir_wizard_report" name="Cátalogo de almacén" parent="sale.menu_sale_report" sequence="100" action="action_view_wizard_reporte" />
 
     <record id="field_stock_gdl" model="ir.ui.view">
       <field name="name">Field stock GDL</field>
@@ -44,9 +44,9 @@
           <field name="stock_enau" invisible="0"/>
           <field name="stock_eoc" invisible="0"/>
           <field name="stock_emer" invisible="0"/>
-          <!--<field name="stock_et" invisible="1"/>-->
         </xpath>
       </field>
     </record>
+
   </data>
 </odoo>

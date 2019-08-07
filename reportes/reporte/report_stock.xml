@@ -23,9 +23,9 @@
 			                  <tr t-if="o.stock_cdmx >= 1 or 
 			                  			o.stock_mer >= 1 or 
 			                  			o.stock_gdl >= 1 or 
-			                  			o.stock_enau  >= 1 or 
-			                  			o.stock_eoc  >= 1 or
-			                  			o.stock_emer  >= 1">
+			                  			o.stock_enau >= 1 or 
+			                  			o.stock_eoc >= 1 or 
+			                  			o.stock_emer >= 1">
 			                    <td>
 			                    	<span>
 			                    		<t t-if="o.image_small">
