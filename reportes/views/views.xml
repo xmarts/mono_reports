@@ -31,22 +31,34 @@
       <field name="target">new</field>
     </record>
     <menuitem id="ir_wizard_report" name="Cátalogo de almacén" parent="sale.menu_sale_report" sequence="100" action="action_view_wizard_reporte" />
-
+    <!--  AGREGAMOS 6 CAMPOS DONDE SE ALMACANARAN EL NUMERO DE PRODUCTOS QUE EXISTEN EN CADA ALMACEN  -->
     <record id="field_stock_gdl" model="ir.ui.view">
       <field name="name">Field stock GDL</field>
       <field name="model">product.template</field>
       <field name="inherit_id" ref="product.product_template_only_form_view"/>
       <field name="arch" type="xml">
         <xpath expr="//field[@name='barcode']" position="after">
-          <field name="stock_gdl" invisible="0"/>
-          <field name="stock_cdmx" invisible="0"/>
-          <field name="stock_mer" invisible="0"/>
-          <field name="stock_enau" invisible="0"/>
-          <field name="stock_eoc" invisible="0"/>
-          <field name="stock_emer" invisible="0"/>
+          <field name="stock_gdl" invisible="1"/>
+          <field name="stock_cdmx" invisible="1"/>
+          <field name="stock_mer" invisible="1"/>
+          <field name="stock_enau" invisible="1"/>
+          <field name="stock_eoc" invisible="1"/>
+          <field name="stock_emer" invisible="1"/>
         </xpath>
       </field>
     </record>
+    <!--  LE AGREGAMOS UN ATRIBUTO A LA ETIQUETA COSTE DEL PRODUCTO, PARA QUE SOLO PUEDA SER VISIBLE POR EL ADMINISTRADOR DE FACTURAS  -->
+    <record id="coste_visible_admin_fact" model="ir.ui.view">
+      <field name="name">Coste admin</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='standard_price']" position="attributes">
+          <attribute name="groups">account.group_account_manager</attribute>
+        </xpath>
+      </field>
+    </record>
+    
 
   </data>
 </odoo>
