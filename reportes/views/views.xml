@@ -38,12 +38,12 @@
       <field name="inherit_id" ref="product.product_template_only_form_view"/>
       <field name="arch" type="xml">
         <xpath expr="//field[@name='barcode']" position="after">
-          <field name="stock_gdl" invisible="1"/>
-          <field name="stock_cdmx" invisible="1"/>
-          <field name="stock_mer" invisible="1"/>
-          <field name="stock_enau" invisible="1"/>
-          <field name="stock_eoc" invisible="1"/>
-          <field name="stock_emer" invisible="1"/>
+          <field name="stock_gdl"/>
+          <field name="stock_cdmx"/>
+          <field name="stock_mer"/>
+          <field name="stock_etgdl"/>
+          <field name="stock_etcdmx"/>
+          <field name="stock_etmer"/>
         </xpath>
       </field>
     </record>

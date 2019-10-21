@@ -7,31 +7,26 @@ from datetime import datetime
 class ProductTemplate(models.Model):
 	_inherit = "product.template"
 
-	stock_gdl = fields.Integer(compute="_compute_stock_qty")
-	stock_cdmx = fields.Integer(compute="_compute_stock_qty")
-	stock_mer = fields.Integer(compute="_compute_stock_qty")
-	stock_enau  = fields.Integer(compute="_compute_stock_qty")
-	stock_eoc  = fields.Integer(compute="_compute_stock_qty")
-	stock_emer  = fields.Integer(compute="_compute_stock_qty")
+	stock_gdl = fields.Integer(compute="_compute_stock_qty", string="Stock GDL")
+	stock_cdmx = fields.Integer(compute="_compute_stock_qty", string="Stock CDMX")
+	stock_mer = fields.Integer(compute="_compute_stock_qty", string ="Stock MER")
+	stock_etgdl  = fields.Integer(compute="_compute_stock_qty", string="En tránsito GDL")
+	stock_etcdmx  = fields.Integer(compute="_compute_stock_qty", string="En tránsito CDMX")
+	stock_etmer  = fields.Integer(compute="_compute_stock_qty", string="En tránsito MER")
 
 	@api.one
 	def _compute_stock_qty(self):
 		stock_warehouse_gdl = self.env['stock.warehouse'].search([('code', 'like', 'GDL')], limit=1)
 		stock_warehouse_cdmx = self.env['stock.warehouse'].search([('code', 'like', 'CDMX')], limit=1)
 		stock_warehouse_mer = self.env['stock.warehouse'].search([('code', 'like', 'MER')], limit=1)
-		stock_warehouse_enau  = self.env['stock.warehouse'].search([('code', 'like', 'ENAU')], limit=1)
-		stock_warehouse_eoc  = self.env['stock.warehouse'].search([('code', 'like', 'EOC')], limit=1)
-		stock_warehouse_emer  = self.env['stock.warehouse'].search([('code', 'like', 'EMER')], limit=1)
-
+		
 		con = self.env.cr
 		query_stock = "SELECT sum(product_qty) FROM stock_inventory_line WHERE product_id = %s AND location_id = %s"
 
 		datos_gdl = (self.product_variant_id.id,stock_warehouse_gdl.lot_stock_id.id)
 		datos_cdmx = (self.product_variant_id.id,stock_warehouse_cdmx.lot_stock_id.id)
 		datos_mer = (self.product_variant_id.id,stock_warehouse_mer.lot_stock_id.id)
-		datos_enau  = (self.product_variant_id.id,stock_warehouse_enau.lot_stock_id.id)
-		datos_eoc  = (self.product_variant_id.id,stock_warehouse_eoc.lot_stock_id.id)
-		datos_emer  = (self.product_variant_id.id,stock_warehouse_emer.lot_stock_id.id)
+		
 
 		con.execute(query_stock, datos_gdl)
 		if con:
@@ -48,23 +43,9 @@ class ProductTemplate(models.Model):
 			row3 = con.fetchall()
 			for x3 in row3:
 				self.stock_mer = x3[0]
-		con.execute(query_stock, datos_enau)
-		if con:
-			row4 = con.fetchall()
-			for x4 in row4:
-				self.stock_enau = x4[0]
-		con.execute(query_stock, datos_eoc)
-		if con:
-			row5 = con.fetchall()
-			for x5 in row5:
-				self.stock_eoc = x5[0]
-		con.execute(query_stock, datos_emer)
-		if con:
-			row6 = con.fetchall()
-			for x6 in row6:
-				self.stock_emer = x6[0]
 
-class PurchaseOrder(models.Model):
+
+'''class PurchaseOrder(models.Model):
 	_inherit = "purchase.order"
 
 	@api.multi
@@ -117,4 +98,4 @@ class PurchaseOrder(models.Model):
 	@api.multi
 	def button_confirm(self):
 		self.action_stock_et()
-		return super(PurchaseOrder, self).button_confirm()				
+		return super(PurchaseOrder, self).button_confirm()		'''		

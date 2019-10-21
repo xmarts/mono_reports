@@ -10,22 +10,22 @@
 			                    <!--<th style="width:10%;text-align:left;">Código</th>-->
 			                    <th>Imagen</th>
 			                    <th>Descripción</th>
-			                    <th>C. NAU</th>
 			                    <th>C. GDL</th>
+			                    <th>C. CDMX</th>
 			                    <th>C. MER</th>
-			                    <th>T. NAU</th>
 			                    <th>T. GDL</th>
+			                    <th>T. CDMX</th>
 			                    <th>T. MER</th>
 			                  </tr>
 			                </thead>
 			                <tbody class="invoice_tbody">
 			                <t t-foreach="docs" t-as="o">
-			                  <tr t-if="o.stock_cdmx >= 1 or 
+			                  <tr t-if="o.stock_gdl >= 1 or 
+			                  			o.stock_cdmx >= 1 or 
 			                  			o.stock_mer >= 1 or 
-			                  			o.stock_gdl >= 1 or 
-			                  			o.stock_enau >= 1 or 
-			                  			o.stock_eoc >= 1 or 
-			                  			o.stock_emer >= 1">
+			                  			o.stock_etgdl >= 1 or 
+			                  			o.stock_etcdmx >= 1 or 
+			                  			o.stock_etmer >= 1">
 			                    <td>
 			                    	<span>
 			                    		<t t-if="o.image_small">
@@ -52,22 +52,22 @@
 									<span t-field="o.description"/>
 			                  	</td>
 			                  	<td>
-									<span t-field="o.stock_cdmx"/>
+									<span t-field="o.stock_gdl"/>
 			                  	</td>
 			                  	<td>
-									<span t-field="o.stock_gdl"/>
+									<span t-field="o.stock_cdmx"/>
 			                  	</td>
 			                  	<td>
 									<span t-field="o.stock_mer"/>
 			                  	</td>
 			                  	<td>
-									<span t-field="o.stock_enau"/>
+									<span t-field="o.stock_etgdl"/>
 			                  	</td>
 			                  	<td>
-									<span t-field="o.stock_eoc"/>
+									<span t-field="o.stock_etcdmx"/>
 			                  	</td>
 			                  	<td>
-									<span t-field="o.stock_emer"/>
+									<span t-field="o.stock_etmer"/>
 			                  	</td>
 			                  </tr>
 			                 </t> 
