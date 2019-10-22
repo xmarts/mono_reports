@@ -38,7 +38,7 @@ class ProductTemplate(models.Model):
                 disponible = line.quantity - line.reserved_quantity
                 self.stock_mer = disponible 
 
-        obj_transito = self.env['stock.move.line'].search([('product_id','=',self.id)])
+        obj_transito = self.env['stock.move.line'].search([('code_product_id','=',self.default_code)])
         for x in obj_transito:
             if x.location_id.id == 8:
                 if x.location_dest_id.id == 12:
