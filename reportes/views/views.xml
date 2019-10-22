@@ -32,13 +32,12 @@
     </record>
     <menuitem id="ir_wizard_report" name="Cátalogo de almacén" parent="sale.menu_sale_report" sequence="100" action="action_view_wizard_reporte" />
     <!--  AGREGAMOS 6 CAMPOS DONDE SE ALMACANARAN EL NUMERO DE PRODUCTOS QUE EXISTEN EN CADA ALMACEN  -->
-    <record id="inventario_almacenes" model="ir.ui.view">
-      <field name="name">Almacenes</field>
+    <record id="field_stock_gdl" model="ir.ui.view">
+      <field name="name">Field stock GDL</field>
       <field name="model">product.template</field>
       <field name="inherit_id" ref="product.product_template_only_form_view"/>
       <field name="arch" type="xml">
         <xpath expr="//field[@name='barcode']" position="after">
-          <br/>
           <field name="stock_gdl"/>
           <field name="et_co"/>
           <field name="stock_cdmx"/>
