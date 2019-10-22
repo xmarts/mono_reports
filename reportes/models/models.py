@@ -4,6 +4,11 @@ from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 from datetime import datetime
 
+class StockQuant(models.Model):
+    _inherit = "stock.quant"
+
+    code_product = fields.Char(related="product_id.default_code", string="Codigo del producto")
+
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
@@ -16,7 +21,7 @@ class ProductTemplate(models.Model):
 
     @api.one
     def _compute(self):
-        obj_stock = self.env['stock.quant'].search([('product_id','=',self.id)])
+        obj_stock = self.env['stock.quant'].search([('code_product','=',self.default_code)])
         for line in obj_stock:
             if line.location_id.id == 12:
                 disponible = line.quantity - line.reserved_quantity
