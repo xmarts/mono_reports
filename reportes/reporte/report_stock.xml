@@ -10,12 +10,12 @@
 			                    <!--<th style="width:10%;text-align:left;">Código</th>-->
 			                    <th>Imagen</th>
 			                    <th>Descripción</th>
-			                    <th>C. GDL</th>
-			                    <th>C. CDMX</th>
-			                    <th>C. MER</th>
-			                    <th>T. GDL</th>
-			                    <th>T. CDMX</th>
-			                    <th>T. MER</th>
+			                    <th>C. OCCIDENTE</th>
+			                    <th>C. CENTRO</th>
+			                    <th>C. SUR</th>
+			                    <th>T. CO</th>
+			                    <th>T. CC</th>
+			                    <th>T. CS</th>
 			                  </tr>
 			                </thead>
 			                <tbody class="invoice_tbody">
@@ -23,9 +23,9 @@
 			                  <tr t-if="o.stock_gdl >= 1 or 
 			                  			o.stock_cdmx >= 1 or 
 			                  			o.stock_mer >= 1 or 
-			                  			o.stock_etgdl >= 1 or 
-			                  			o.stock_etcdmx >= 1 or 
-			                  			o.stock_etmer >= 1">
+			                  			o.et_co >= 1 or 
+			                  			o.et_cc >= 1 or 
+			                  			o.et_cs >= 1">
 			                    <td>
 			                    	<span>
 			                    		<t t-if="o.image_small">
@@ -61,13 +61,13 @@
 									<span t-field="o.stock_mer"/>
 			                  	</td>
 			                  	<td>
-									<span t-field="o.stock_etgdl"/>
+									<span t-field="o.et_co"/>
 			                  	</td>
 			                  	<td>
-									<span t-field="o.stock_etcdmx"/>
+									<span t-field="o.et_cc"/>
 			                  	</td>
 			                  	<td>
-									<span t-field="o.stock_etmer"/>
+									<span t-field="o.et_cs"/>
 			                  	</td>
 			                  </tr>
 			                 </t> 
