@@ -1,7 +1,7 @@
 <odoo> 
       <data>
             <report
-                string="Reporte personalizado"
+                string="Cátalago de almacén"
                 id="action_imp_report"
                 model="product.template"
                 name="reportes.report_stock"

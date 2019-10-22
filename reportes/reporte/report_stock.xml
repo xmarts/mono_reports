@@ -7,7 +7,44 @@
 						<table class="table table-condensed" >
 			                <thead>
 			                  <tr>
-			                    <!--<th style="width:10%;text-align:left;">Código</th>-->
+			                    <th>C. OCCIDENTE</th>
+			                    <th>C. CENTRO</th>
+			                    <th>C. SUR</th>
+			                    <th>T. CO</th>
+			                    <th>T. CC</th>
+			                    <th>T. CS</th>
+			                  </tr>
+			                </thead>
+			                <tbody class="invoice_tbody">
+								<t t-foreach="docs" t-as="o">
+									<tr>
+										<td>
+											<span t-field="o.stock_gdl"/>
+										</td>
+										<td>
+											<span t-field="o.stock_cdmx"/>
+										</td>
+										<td>
+											<span t-field="o.stock_mer"/>
+										</td>
+										<td>
+											<span t-field="o.et_co"/>
+										</td>
+										<td>
+											<span t-field="o.et_cc"/>
+										</td>
+										<td>
+											<span t-field="o.et_cs"/>
+										</td>
+									</tr>
+								</t> 
+			                </tbody>
+			            </table>
+					</div>
+					<!--<div class="page">
+						<table class="table table-condensed" >
+			                <thead>
+			                  <tr>
 			                    <th>Imagen</th>
 			                    <th>Descripción</th>
 			                    <th>C. OCCIDENTE</th>
@@ -73,7 +110,7 @@
 			                 </t> 
 			                </tbody>
 			              </table>
-					</div>
+					</div>-->
 				</t>
 			</t>
 		</t>
