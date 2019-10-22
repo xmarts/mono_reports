@@ -9,6 +9,11 @@ class StockQuant(models.Model):
 
     code_product = fields.Char(related="product_id.default_code", string="Codigo del producto")
 
+class StockMoveLine(models.Model):
+    _inherit = "stock.move.line"
+
+    code_product_id = fields.Char(related="product_id.default_code", string="Código del producto")
+
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
