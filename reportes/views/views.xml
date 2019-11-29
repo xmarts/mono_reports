@@ -30,7 +30,7 @@
       <field name="view_id" ref="action_wizard_report_stock"/>
       <field name="target">new</field>
     </record>
-    <menuitem id="ir_wizard_report" name="Cátalogo de almacén" parent="sale.menu_sale_report" sequence="100" action="action_view_wizard_reporte" />
+    <!-- <menuitem id="ir_wizard_report" name="Cátalogo de almacén" parent="sale.menu_sale_report" sequence="100" action="action_view_wizard_reporte" /> -->
     <!--  AGREGAMOS 6 CAMPOS DONDE SE ALMACANARAN EL NUMERO DE PRODUCTOS QUE EXISTEN EN CADA ALMACEN  -->
     <record id="field_stock_gdl" model="ir.ui.view">
       <field name="name">Field stock GDL</field>
